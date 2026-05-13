@@ -1,67 +1,88 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cardArray = [
         {
-            name: '1',
-            img: 'https://img.icons8.com/?size=100&id=lOvhiSMwKCwC&format=png&color=000000'
+            name: 'apple',
+            img: 'apple.png'
         },
         {
-            name: '2',
-            img: 'https://img.icons8.com/?size=100&id=O8qZGG8hWatE&format=png&color=000000'
+            name: 'bananas',
+            img: 'bananas.png'
         },
         {
-           name: '3',
-           img: 'https://img.icons8.com/?size=100&id=5UN4LPGHfiBS&format=png&color=000000'
+           name: 'grapes',
+           img: 'grapes.png'
         },
         {
-            name: '4',
-            img: 'https://img.icons8.com/?size=100&id=1jBlYcdpMaNj&format=png&color=000000'
+            name: 'cherry',
+            img: 'cherry.png'
         },
         { 
-            name: '5',
-            img: 'https://img.icons8.com/?size=100&id=1jBlYcdpMaNj&format=png&color=000000'
+            name: 'orange',
+            img: 'orange.png'
         },
         {
-            name: '6',
-            img: 'https://img.icons8.com/?size=100&id=pmiijGGgOR0N&format=png&color=000000'
+            name: 'strawberry',
+            img: 'strawberry.png'
         },
          {
-            name: '1',
-            img: 'https://img.icons8.com/?size=100&id=lOvhiSMwKCwC&format=png&color=000000'
+            name: 'apple',
+            img: 'apple.png'
         },
         {
-            name: '2',
-            img: 'https://img.icons8.com/?size=100&id=O8qZGG8hWatE&format=png&color=000000'
+            name: 'bananas',
+            img: 'bananas.png'
         },
         {
-           name: '3',
-           img: 'https://img.icons8.com/?size=100&id=5UN4LPGHfiBS&format=png&color=000000'
+           name: 'grapes',
+           img: 'grapes.png'
         },
         {
-            name: '4',
-            img: 'https://img.icons8.com/?size=100&id=1jBlYcdpMaNj&format=png&color=000000'
+            name: 'cherry',
+            img: 'cherry.png'
         },
         { 
-            name: '5',
-            img: 'https://img.icons8.com/?size=100&id=1jBlYcdpMaNj&format=png&color=000000'
+            name: 'orange',
+            img: 'orange.png'
         },
         {
-            name: '6',
-            img: 'https://img.icons8.com/?size=100&id=pmiijGGgOR0N&format=png&color=000000'
+            name: 'strawberry',
+            img: 'strawberry.png'
         }
-    ]
+    ];
+    cardArray.sort(() => 0.5 - Math.random());
 
     const board = document.querySelector('.board')
     const result = document.querySelector('#score')
-    const placeholder = 'https://cloud-5ystxzer7.vercel.app/7placeholder.png'
-    const blank = 'https://cloud-5ystxzer7.vercel.app/6blank.png'
-})
+    const placeholder = 'plant.png';
+    const blank = 'blank.jpg';
 
-function createBoard () {
+    let cardsChosen = [];
+    let cardsChosenId = [];
+    let cardsWon = [];
+
+    function createBoard () {
     for (let i = 0; i <cardArray.length; i++) {
-        var card = document.createElement('img')
-        card.setAttribute('src', placeholder)
-        card.setAttribute('data-id', i)
+        var card = document.createElement('img');
+        card.setAttribute('src', placeholder);
+        card.setAttribute('data-id', i);
+        card.addEventListener('click', flipCard);
+        board.appendChild(card);
     }
 }
 
-card.addEventListener('click', flipCard)
+var cardsClicked = []
+var cardsclickedId = []
+var cardsMatched = []
+
+function flipCard() {
+    var cardId= this.getAttribute('data-id');
+    cardsChosen.push(cardArray[cardId].name);
+    cardsChosenId.push(cardId);
+    this.setAttribute('src', cardArray[cardId].img);
+    if (cardsChosen.length === 2) {
+        setTimeout(checkForMatch, 500);
+    }
+}
+
+createBoard();
+})
