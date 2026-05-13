@@ -84,5 +84,33 @@ function flipCard() {
     }
 }
 
+function checkForMatch() {
+    var cards = document.querySelectorAll('img')
+    const firstCard = cardsClickedId[0]
+    const secondCard = cardsClicked[1]
+    if (firstCard === secondCard) {
+        cards[firstCard].setAttribute('src', placeholder)
+        cards[secondCard].setAttribute('src', placeholder)
+        alert('You have clicked the same image!!')
+    }
+    else if (cardsClicked[0] === cardsClicked[1]) {
+        cards[firstCard].setAttribute('src', blank)
+        cards[secondCard].setAttribute('src', blank)
+        cardsMatched.push(cardsClicked)
+        cards[firstCard].removeEventListener('click', flipCard)
+        cards[secondCard].removeEventListener('click', flipCard)
+    }
+    else {
+            cards[firstCard].setAttribute('src',placeholder)
+            cards[secondCard].setAttribute('src', placeholder)
+        }
+        cardsClicked = []
+        cardsClicked = []
+        result.textContent = cardsMatched.length
+        if (cardsMatched.length === cardArray.length/2) {
+            result.textContent = 'congratulations!, you completed it'
+        }
+}
+
 createBoard();
 })
