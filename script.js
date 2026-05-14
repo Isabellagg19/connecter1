@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const board = document.querySelector('.board')
     const result = document.querySelector('#score')
-    const placeholder = 'plant.png';
-    const blank = 'blank.jpg';
+    const placeholder = 'thinking.png';
+    const blank = 'happy-face.png';
 
     let cardsChosen = [];
     let cardsChosenId = [];
@@ -99,7 +99,8 @@ function checkForMatch() {
         cardsChosenId = [];
         result.textContent = cardsMatched.length
         if (cardsMatched.length === cardArray.length/2) {
-            result.textContent = 'congratulations!, you completed it'
+            result.textContent = 'congratulations!, you did it';
+            document.getElementById('wingif').style.display= 'block';
         }
 }
 
