@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
            img: 'grapes.png'
         },
         {
-            name: 'cherry',
-            img: 'cherry.png'
+            name: 'cherries',
+            img: 'cherries.png'
         },
         { 
             name: 'orange',
@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
            img: 'grapes.png'
         },
         {
-            name: 'cherry',
-            img: 'cherry.png'
+            name: 'cherries',
+            img: 'cherries.png'
         },
         { 
             name: 'orange',
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let cardsChosen = [];
     let cardsChosenId = [];
-    let cardsWon = [];
+    let cardsMatched = [];
 
     function createBoard () {
     for (let i = 0; i <cardArray.length; i++) {
@@ -69,10 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
         board.appendChild(card);
     }
 }
-
-var cardsClicked = []
-var cardsclickedId = []
-var cardsMatched = []
 
 function flipCard() {
     var cardId= this.getAttribute('data-id');
@@ -85,27 +81,22 @@ function flipCard() {
 }
 
 function checkForMatch() {
-    var cards = document.querySelectorAll('img')
-    const firstCard = cardsClickedId[0]
-    const secondCard = cardsClicked[1]
-    if (firstCard === secondCard) {
-        cards[firstCard].setAttribute('src', placeholder)
-        cards[secondCard].setAttribute('src', placeholder)
-        alert('You have clicked the same image!!')
-    }
-    else if (cardsClicked[0] === cardsClicked[1]) {
-        cards[firstCard].setAttribute('src', blank)
-        cards[secondCard].setAttribute('src', blank)
-        cardsMatched.push(cardsClicked)
-        cards[firstCard].removeEventListener('click', flipCard)
-        cards[secondCard].removeEventListener('click', flipCard)
-    }
-    else {
-            cards[firstCard].setAttribute('src',placeholder)
-            cards[secondCard].setAttribute('src', placeholder)
+    const cards = document.querySelectorAll('img');
+    const optionOneId = cardsChosenId[0];
+    const optionTwoId = cardsChosenId[1];
+
+    if (cardsChosen[0] === cardsChosen[1]) {
+        cards[optionOneId].setAttribute('src', blank);
+        cards[optionTwoId].setAttribute('src', blank);
+        cardsMatched.push(cardsChosen);
+        cards[optionOneId].removeEventListener('click', flipCard);
+        cards[optionTwoId].removeEventListener('click', flipCard);
+    } else {
+            cards[optionOneId].setAttribute('src',placeholder);
+            cards[optionTwoId].setAttribute('src', placeholder);
         }
-        cardsClicked = []
-        cardsClicked = []
+        cardsChosen = [];
+        cardsChosenId = [];
         result.textContent = cardsMatched.length
         if (cardsMatched.length === cardArray.length/2) {
             result.textContent = 'congratulations!, you completed it'
