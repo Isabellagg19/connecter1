@@ -71,3 +71,29 @@ li{
     font-family: "Quicksand", sans-serif;
     font-size: 20px;
 }
+
+h2 {
+    font-family: "Sniglet", system-ui;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+}
+.closeBtn {
+    border-radius: 999px;
+    background-color: rgb(167, 216, 114);
+    color: black;
+    padding: 15px 20px;
+    font-family: "Quicksand", sans-serif;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    transition: all 0.5s ease;
+}
+
+.closeBtn:hover {
+    transform: scale(1.05);
+    background-color: rgb(218, 255, 199);
+    box-shadow: 0 4px 6px #4b4a4a;
+}

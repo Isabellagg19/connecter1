@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const box = document.getElementById('instructions');
+    const closeBtn = document.getElementById('closeBtn');
+    box.style.display = 'block';
+
+    closeBtn.addEventListener('click', () => {
+        box.style.display = 'none';
+    });
     const cardArray = [
         {
             name: 'apple',
