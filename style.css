@@ -3,8 +3,6 @@ body {
     background: url(background.png);
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: "Quicksand", sans-serif;
-    font-size: 30px;
 }
 
 h1 {
@@ -19,6 +17,15 @@ h1:hover {
     transform: translateY(-20px);
 }
 
+.score {
+    font-family: "Quicksand", sans-serif;
+    font-size: 30px;
+    transition: transform 0.5s ease;
+}
+
+.score:hover {
+    transform: translateY(-16px);
+}
 
 .board {
     padding-left: 100px;
@@ -35,4 +42,32 @@ h1:hover {
 
 .board img:hover {
     transform: translateY(-15px);
+}
+
+.instructions-box {
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffffc3;        
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  text-align: center;
+  z-index: 1000;  
+  transition: all 0.7s ease;
+}
+
+.instructions-box:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+li{
+    font-family: "Quicksand", sans-serif;
+    font-size: 20px;
+}
+
+.instructions-text {
+    font-family: "Quicksand", sans-serif;
+    font-size: 20px;
 }

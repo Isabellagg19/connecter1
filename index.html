@@ -11,9 +11,19 @@
 
     <body>
         <h1>Connecter1</h1>
-        <p> Score: <span id= "score"></span></p>
+        <p class="score"> Score: <span id= "score"></span></p>
+          <div class="instructions-box">
+            <h2>Instructions</h2>
+            <p class="instructions-text">On the screen you will see a series of emojis, each one hides a fruit</p>
+            <ul>
+              <li>Take a guess and select 2 of these emojis, your mission is to find the right pairs</li>
+              <li>If you make a mistake, you'll hear an error sound</li>
+              <li>But if you manage to complete all the pairs, you will hear a victory sound, and find a cute surprise!!</li>
+            </ul>
+            <p class="instructions-text">Good luck</p>
+            <button id="closeBtn">PLAY!</button>
+          </div>
         <div class="board"></div>
-
         <div id="wingif" style="display: none; text-align: center;">
         <img src="wingiff.gif" alt="You Win!!" />
         <audio id="win-sound" src="winningsound.mp3"></audio>
